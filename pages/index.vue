@@ -1,18 +1,11 @@
-<template>
-  <div>
-    <h2>Hello word !!!</h2>
-  </div>
-</template>
-
 <script>
-import { defineComponent, reactive, toRefs } from '@nuxtjs/composition-api'
+import { defineComponent, h } from '@nuxtjs/composition-api'
+import ProfileCard from '@components/profile/card.vue'
 
 export default defineComponent({
   name: 'App',
   setup() {
-    const state = reactive({})
-
-    return { ...toRefs(state) }
+    return () => h(ProfileCard)
   },
 })
 </script>

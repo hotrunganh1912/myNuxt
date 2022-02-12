@@ -1,3 +1,5 @@
+import { resolve } from 'path'
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -42,6 +44,10 @@ export default {
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
+  },
+
+  alias: {
+    '@components': resolve(__dirname, './components'),
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
