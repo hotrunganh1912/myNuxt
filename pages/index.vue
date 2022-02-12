@@ -1,10 +1,18 @@
 <template>
-<!--  <Tutorial />-->
-  <h1>Hello World</h1>
+  <div>
+    <h2>Hello word !!!</h2>
+  </div>
 </template>
 
 <script>
-export default {
-  name: "IndexPage",
-}
+import { defineComponent, reactive, toRefs } from '@nuxtjs/composition-api'
+
+export default defineComponent({
+  name: 'App',
+  setup() {
+    const state = reactive({})
+
+    return { ...toRefs(state) }
+  },
+})
 </script>
