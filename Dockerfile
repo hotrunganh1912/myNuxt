@@ -1,12 +1,31 @@
-FROM node:16.14.0
+FROM node:lts as builder
 
-ENV APP_ROOT /src
+WORKDIR /app
 
-RUN mkdir ${APP_ROOT}
-WORKDIR ${APP_ROOT}
-ADD . ${APP_ROOT}
+COPY . .
 
-RUN yarn install
-RUN yarn run build
+RUN yarn install \
+  --prefer-offline \
+  --frozen-lockfile \
+  --non-interactive \
+  --production=false
+
+RUN yarn build
+
+RUN rm -rf node_modules && \
+  NODE_ENV=production yarn install \
+  --prefer-offline \
+  --pure-lockfile \
+  --non-interactive \
+  --production=true
+
+FROM node:lts
+
+WORKDIR /app
+
+COPY --from=builder /app  .
 
 ENV HOST 0.0.0.0
+EXPOSE 3000
+
+CMD [ "yarn", "start" ]
