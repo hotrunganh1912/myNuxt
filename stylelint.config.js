@@ -7,5 +7,14 @@ module.exports = {
   ],
   // add your custom config here
   // https://stylelint.io/user-guide/configuration
-  rules: {},
+  rules: {
+    'selector-class-pattern': [
+      '^[a-z][a-zA-Z0-9]+$',
+      {
+        message: 'Expected class selector to be lowerCamelCase',
+      },
+    ],
+    'color-function-notation': 'legacy',
+    'alpha-value-notation': `number`,
+  },
 }
