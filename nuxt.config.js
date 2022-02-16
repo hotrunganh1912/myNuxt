@@ -1,4 +1,8 @@
 import { resolve } from 'path'
+import getSiteMeta from './utils/getSiteMeta'
+const meta = getSiteMeta()
+
+const isDev = process.env.NODE_ENV === 'development'
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -10,8 +14,14 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { name: 'HandheldFriendly', content: 'True' },
+      { property: 'og:site_name', content: 'Hồ Trung Anh' },
       { name: 'format-detection', content: 'telephone=no' },
+      { property: 'og:image:width', content: '740' },
+      { property: 'og:image:height', content: '300' },
+      { name: 'twitter:site', content: '@bobross' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      ...meta,
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
@@ -54,5 +64,12 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
+    loaders: {
+      cssModules: {
+        modules: {
+          localIdentName: isDev ? '[local]_[hash:base64:5]' : '[hash:base64:5]',
+        },
+      },
+    },
   },
 }
