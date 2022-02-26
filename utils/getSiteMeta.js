@@ -1,8 +1,8 @@
 const type = 'website'
 const url = process.env.FE_BASE_URL
-const title =
+const title = 'Hồ Trung Anh'
+const description =
   'Hi there! ' + 'I am Hồ Trung Anh, Front-end developer in DaNang, VietNam'
-const description = ''
 const mainImage = url + '/preview.png'
 
 export default (meta) => {

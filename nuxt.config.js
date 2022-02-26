@@ -56,6 +56,11 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
+  globalName: 'TrungAnhPortfolio',
+  globals: {
+    id: (globalName) => `__${globalName}App`,
+    context: (globalName) => `__${globalName.toUpperCase()}_INITIAL_STATE__`,
+  },
 
   alias: {
     '@components': resolve(__dirname, './components'),
