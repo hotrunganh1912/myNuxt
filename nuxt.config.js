@@ -14,6 +14,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {
+        name: 'keywords',
+        content:
+          'Hồ Trung Anh, Anh Hồ, dev, FE, front-end, developer, Đà Nẵng, Việt Nam',
+      },
       { name: 'HandheldFriendly', content: 'True' },
       { property: 'og:site_name', content: 'Hồ Trung Anh' },
       { name: 'format-detection', content: 'telephone=no' },

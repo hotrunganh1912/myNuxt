@@ -1,11 +1,11 @@
 <template>
   <div :class="$style.wrapper">
     <Nuxt />
-  </div >
+  </div>
 </template>
 
 <script>
-import { defineComponent} from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'BaseLayout',
@@ -17,13 +17,12 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-content: center;
-  height:100%;
+  height: 100%;
 }
 
-:global(html,body) {
+:global(html, body) {
   box-sizing: border-box;
   height: 100vh;
   width: 100vw;
 }
-
 </style>

@@ -25,13 +25,14 @@ export default defineComponent({
     const state = reactive({
       name: name ?? 'Hồ Trung Anh',
       job: job ?? 'Front-end developer',
-      location: location ?? 'DaNang, VietNam',
+      location: location ?? 'DaNang, VietNam1112',
     })
 
     return { ...toRefs(state) }
   },
 })
 </script>
+
 <style module lang="scss">
 .cardWrapper {
   display: flex;
