@@ -21,8 +21,10 @@
     "*.**": "prettier --check --ignore-unknown"
   },
   "dependencies": {
+    "@nuxt/http": "^0.6.4",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/composition-api": "^0.31.0",
+    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.19.3",
     "element-ui": "^2.15.6",
     "nuxt": "^2.15.8",
