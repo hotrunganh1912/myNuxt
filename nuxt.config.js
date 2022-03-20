@@ -3,6 +3,7 @@ import getSiteMeta from './utils/getSiteMeta'
 const meta = getSiteMeta()
 
 const isDev = process.env.NODE_ENV === 'development'
+console.log('process.env.BE_URI', process.env.BE_URI)
 
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -35,7 +36,7 @@ export default {
   css: ['element-ui/lib/theme-chalk/index.css', '~/static/reset.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/element-ui'],
+  plugins: ['@/plugins/element-ui', '@/plugins/axios'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -54,12 +55,15 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxt/http',
+    'cookie-universal-nuxt',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/',
+    baseURL: process.env.BE_URI,
+    credentials: 'include',
   },
   globalName: 'TrungAnhPortfolio',
   globals: {
@@ -69,6 +73,7 @@ export default {
 
   alias: {
     '@components': resolve(__dirname, './components'),
+    '@api': resolve(__dirname, './api'),
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
